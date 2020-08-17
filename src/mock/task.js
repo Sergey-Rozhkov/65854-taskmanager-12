@@ -3,9 +3,9 @@ import {getRandomInteger} from "../utils.js";
 
 const generateDescription = () => {
   const descriptions = [
-  `Изучить теорию`,
-  `Сделать домашку`,
-  `Пройти интенсив на соточку`
+    `Изучить теорию`,
+    `Сделать домашку`,
+    `Пройти интенсив на соточку`
   ];
 
   const randomIndex = getRandomInteger(0, descriptions.length - 1);
@@ -53,13 +53,13 @@ export const generateTask = () => {
   const repeating = dueDate === null
     ? generateRepeating()
     : {
-    mo: false,
-    tu: false,
-    we: false,
-    th: false,
-    fr: false,
-    sa: false,
-    su: false
+      mo: false,
+      tu: false,
+      we: false,
+      th: false,
+      fr: false,
+      sa: false,
+      su: false
     };
 
   return {

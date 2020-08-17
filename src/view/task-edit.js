@@ -41,7 +41,6 @@ const createTaskEditRepeatingTemplate = (repeating) => {
 };
 
 const createTaskEditColorsTemplate = (currentColor) => {
-  const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
 
   return COLORS.map((color) => `<input
     type="radio"
