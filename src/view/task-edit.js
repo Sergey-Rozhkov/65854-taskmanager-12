@@ -1,23 +1,11 @@
-import {isTaskExpired, isTaskRepeating} from "../utils.js";
+import {BLANK_TASK} from "../const.js";
+import {isTaskExpired, isTaskRepeating, createElement} from "../utils.js";
 import {createTaskEditDateTemplate} from "./task-edit-date.js";
 import {createTaskEditRepeatingTemplate} from "./task-edit-repeating.js";
 import {createTaskEditColorsTemplate} from "./task-edit-colors.js";
 
-export const createTaskEditTemplate = (task = {}) => {
-  const {
-    color = `black`,
-    description = ``,
-    dueDate = null,
-    repeating = {
-      mo: false,
-      tu: false,
-      we: false,
-      th: false,
-      fr: false,
-      sa: false,
-      su: false
-    }
-  } = task;
+const createTaskEditTemplate = (task = {}) => {
+  const {color, description, dueDate, repeating} = task;
 
   const deadlineClassName = isTaskExpired(dueDate)
     ? `card--deadline`
@@ -73,3 +61,26 @@ export const createTaskEditTemplate = (task = {}) => {
     </article>`
   );
 };
+
+export default class TaskEdit {
+  constructor(task) {
+    this._task = task || BLANK_TASK;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createTaskEditTemplate(this._task);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
