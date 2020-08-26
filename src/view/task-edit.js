@@ -1,8 +1,25 @@
-import {BLANK_TASK} from "../const.js";
+import {COLORS} from "../const.js";
 import {isTaskExpired, isTaskRepeating, createElement} from "../utils.js";
 import {createTaskEditDateTemplate} from "./task-edit-date.js";
 import {createTaskEditRepeatingTemplate} from "./task-edit-repeating.js";
 import {createTaskEditColorsTemplate} from "./task-edit-colors.js";
+
+const BLANK_TASK = {
+  color: COLORS[0],
+  description: ``,
+  dueDate: null,
+  repeating: {
+    mo: false,
+    tu: false,
+    we: false,
+    th: false,
+    fr: false,
+    sa: false,
+    su: false
+  },
+  isArchive: false,
+  isFavorite: false
+};
 
 const createTaskEditTemplate = (task = {}) => {
   const {color, description, dueDate, repeating} = task;
