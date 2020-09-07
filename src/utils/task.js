@@ -36,17 +36,13 @@ export const humanizeTaskDueDate = (dueDate) => {
 const getWeightForNullDate = (dateA, dateB) => {
   if (dateA === null && dateB === null) {
     return 0;
-  }
-
-  if (dateA === null) {
+  } else if (dateA === null) {
     return 1;
-  }
-
-  if (dateB === null) {
+  } else if (dateB === null) {
     return -1;
+  } else {
+    return null;
   }
-
-  return null;
 };
 
 export const sortTaskUp = (taskA, taskB) => {
