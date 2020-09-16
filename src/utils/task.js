@@ -1,4 +1,5 @@
 import moment from "moment";
+import {TASK_DUEDATE} from "../const";
 
 const getCurrentDate = () => {
   const currentDate = new Date();
@@ -14,7 +15,7 @@ export const isTaskExpired = (dueDate) => {
 
   const currentDate = getCurrentDate();
 
-  return currentDate.getTime() > dueDate.getTime();
+  return moment(currentDate).isAfter(dueDate, `day`);
 };
 
 export const isTaskExpiringToday = (dueDate) => {
@@ -24,7 +25,7 @@ export const isTaskExpiringToday = (dueDate) => {
 
   const currentDate = getCurrentDate();
 
-  return currentDate.getTime() === dueDate.getTime();
+  return moment(dueDate).isSame(currentDate, `day`);
 };
 
 export const isTaskRepeating = (repeating) => {
@@ -36,7 +37,7 @@ export const formatTaskDueDate = (dueDate) => {
     return ``;
   }
 
-  return moment(dueDate).format(`D MMMM`);
+  return moment(dueDate).format(TASK_DUEDATE);
 };
 
 const getWeightForNullDate = (dateA, dateB) => {
@@ -69,4 +70,12 @@ export const sortTaskDown = (taskA, taskB) => {
   }
 
   return taskB.dueDate.getTime() - taskA.dueDate.getTime();
+};
+
+export const isDatesEqual = (dateA, dateB) => {
+  if (dateA === null && dateB === null) {
+    return true;
+  }
+
+  return moment(dateA).isSame(dateB, `day`);
 };
