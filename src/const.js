@@ -1,4 +1,11 @@
-export const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+export const Color = {
+  BLACK: `black`,
+  YELLOW: `yellow`,
+  BLUE: `blue`,
+  GREEN: `green`,
+  PINK: `pink`
+};
+export const COLORS = Object.values(Color);
 export const TASK_COUNT = 22;
 export const TASK_COUNT_PER_STEP = 8;
 export const RenderPosition = {
@@ -29,3 +36,8 @@ export const FilterType = {
   ARCHIVE: `archive`
 };
 export const TASK_DUEDATE = `D MMMM`;
+export const MenuItem = {
+  ADD_NEW_TASK: `ADD_NEW_TASK`,
+  TASKS: `TASKS`,
+  STATISTICS: `STATISTICS`
+};
