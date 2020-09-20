@@ -1,7 +1,7 @@
 import moment from "moment";
 import {TASK_DUEDATE} from "../const";
 
-const getCurrentDate = () => {
+export const getCurrentDate = () => {
   const currentDate = new Date();
   currentDate.setHours(23, 59, 59, 999);
 
