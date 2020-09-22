@@ -32,8 +32,6 @@ export const countCompletedTaskInDateRange = (tasks, dateFrom, dateTo) => {
       return counter;
     }
 
-    // С помощью moment.js проверям, сколько задач с дедлайном
-    // попадают в диапазон дат
     if (
       moment(task.dueDate).isSame(dateFrom) ||
       moment(task.dueDate).isBetween(dateFrom, dateTo) ||
@@ -50,11 +48,6 @@ export const getDatesInRange = (dateFrom, dateTo) => {
   const dates = [];
   let stepDate = new Date(dateFrom);
 
-  // Нам нужно получить все даты из диапазона,
-  // чтобы корректно отразить их на графике.
-  // Для этого проходим в цикле от даты "от"
-  // до даты "до" и каждый день, что между,
-  // заносим в результирующий массив dates
   while (moment(stepDate).isSameOrBefore(dateTo)) {
     dates.push(new Date(stepDate));
     stepDate.setDate(stepDate.getDate() + 1);

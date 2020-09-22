@@ -1,5 +1,5 @@
 import TaskEditView from "../view/task-edit.js";
-import {generateId} from "../mock/task.js";
+import {generateId} from "../utils/task.js";
 import {remove, render} from "../utils/render.js";
 import {RenderPosition, UserAction, UpdateType} from "../const.js";
 
