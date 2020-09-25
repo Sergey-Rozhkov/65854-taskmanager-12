@@ -1,4 +1,4 @@
-export const createTaskEditRepeatingTemplate = (repeating, isRepeating) => {
+export const createTaskEditRepeatingTemplate = (repeating, isRepeating, isDisabled) => {
   return `<button class="card__repeat-toggle" type="button">
     repeat:<span class="card__repeat-status">${isRepeating ? `yes` : `no`}</span>
   </button>
@@ -11,6 +11,7 @@ export const createTaskEditRepeatingTemplate = (repeating, isRepeating) => {
         name="repeat"
         value="${day}"
         ${repeat ? `checked` : ``}
+        ${isDisabled ? `checked` : ``}
       />
       <label class="card__repeat-day" for="repeat-${day}"
         >${day}</label

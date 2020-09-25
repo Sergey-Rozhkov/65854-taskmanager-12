@@ -42,3 +42,5 @@ export const MenuItem = {
   TASKS: `TASKS`,
   STATISTICS: `STATISTICS`
 };
+export const AUTHORIZATION = `Basic hS2sd3dfSwcl1sa2j`;
+export const END_POINT = `https://12.ecmascript.pages.academy/task-manager`;
